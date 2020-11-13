@@ -1,10 +1,7 @@
 <script>
-import Videos from "./Videos.svelte"
-
-export let source
-export let id
-export let closeVideo
-
+    export let source
+    export let id
+    export let closeVideo
 </script>
 
 <video 
