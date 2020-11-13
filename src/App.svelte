@@ -63,11 +63,10 @@
 	const handleKeydown = (e) => {
 		let keyCode = e.keyCode
 		if (isPlaying) {
+			// if 'p' is pressed
 			if (keyCode == 80) {
 				closeVideo()
-			} else {
-				return
-			}
+			} else { return }
 		} else {
 			navigationKey(keyCode)
 		}
@@ -78,41 +77,12 @@
 <svelte:window on:keydown={handleKeydown}/>
 
 <main>
-	<section>
-		<VideosPosters 
-			{videosList}
-			{currentVidID} />
-	</section>
+	<VideosPosters 
+		{videosList}
+		{currentVidID} />
 </main>
 
-<div data-playerstate="{isPlaying ? 'playing' : 'paused'}">
-	<Videos
-		{videosList}
-		{closeVideo} />
-</div>
-
-<style>
-	section {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-auto-rows: min-content;
-		grid-gap: var(--su);
-		align-items: center;
-	}
-	div {
-		display:flex;
-		justify-content: center;
-		align-items:center;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		opacity:0;
-		background: black;
-		transition:opacity 250ms ease-out;
-	}
-	div[data-playerstate="playing"] {
-		opacity:1;
-	}
-</style>
+<Videos
+	{videosList}
+	{closeVideo}
+	{isPlaying}	/>
