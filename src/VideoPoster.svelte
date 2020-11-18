@@ -41,10 +41,14 @@
         display:flex;
         align-items:center;
         justify-content: center;
-        background-color:rgba(0,0,0,0.5);
+        background-color:rgba(var(--light-orange-rgb),0.25);
         border:5px solid white;
         color:white;
-        font-size:24px;
+        font-size:56px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+    }
+    article[data-selected="true"] img {
+        filter: grayscale(100%);
     }
     img {
         display:block;
@@ -52,8 +56,8 @@
         height:auto;
     }
     h2 {
+        font-family:rift;
         text-align: center;
-        color:black;
         font-weight: normal;
     }
 </style>

@@ -2,6 +2,8 @@
 	import Video from "./Video.svelte"
 	
 	export let videosList
+	export let currentVidTiming
+	export let currentVidDuration
 	export let closeVideo
 	export let isPlaying
 </script>
@@ -11,6 +13,8 @@
 		<Video
 			source="{videoItem.source}"
 			id="{index}"
+			{currentVidTiming}
+			{currentVidDuration}
 			{closeVideo}
 		/>
 	{/each}

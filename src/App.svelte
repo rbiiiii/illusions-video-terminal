@@ -9,20 +9,46 @@
 
 	let isPlaying = false
 	let currentVidID = 0
-	let currentVid = document.querySelector(`video[data-id="${currentVidID}"]`)
+	let currentVidWrapper = document.querySelector(`.video-wrapper[data-id="${currentVidID}"]`)
+	let currentVid = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] video`)
+	let currentVidTiming = 0
+	let currentVidDuration = 0
+	let interval = null
+
+	let videoTimer = function() {
+		let timer;
+		function launchTimer() { currentVidTiming += 1 }
+		return {
+			start() {
+				timer = window.setInterval(launchTimer, 1000)
+			},
+			stop() {
+				clearInterval(timer)
+			}
+		}
+	}
+
+	let videoTimerClosure = videoTimer()
 
 	const closeVideo = () => {
+		currentVidWrapper.classList.remove('fullscreen')
 		currentVid.pause()
-		currentVid.classList.remove('fullscreen')
 		currentVid.currentTime = 0
+		currentVidTiming = 0
+		videoTimerClosure.stop()
 		isPlaying = false
 	}
 
 	const openVideo = () => {
-		currentVid = document.querySelector(`video[data-id="${currentVidID}"]`)
-		currentVid.classList.add('fullscreen')
+		currentVidWrapper = document.querySelector(`.video-wrapper[data-id="${currentVidID}"]`)
+		currentVid = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] video`)
+		currentVidWrapper.classList.add('fullscreen')
 		currentVid.play()
 		isPlaying = true
+		videoTimerClosure.start()
+		currentVid.onloadedmetadata = function() {
+			currentVidDuration = Math.round(currentVid.duration)
+		};
 	}
 
 	const navigationKey = (key) => {
@@ -76,6 +102,8 @@
 
 <svelte:window on:keydown={handleKeydown}/>
 
+{currentVidTiming}
+
 <main>
 	<VideosPosters 
 		{videosList}
@@ -84,5 +112,7 @@
 
 <Videos
 	{videosList}
+	{currentVidTiming}
+	{currentVidDuration}
 	{closeVideo}
 	{isPlaying}	/>
