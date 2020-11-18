@@ -4,17 +4,18 @@
 
 	export let videosList
 
+	const body = document.body
 	const maxVideosNumber = Object.keys(videosList).length - 1 
 	const numberOfColumns = 4
-	const body = document.body
 
+	let isFullscreen = false
 	let isPlaying = false
 	let currentVidID = 0
 	let currentVidWrapper = document.querySelector(`.video-wrapper[data-id="${currentVidID}"]`)
 	let currentVid = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] video`)
 	let currentVidTiming = 0
 	let currentVidDuration = 0
-	let interval = null
+	let progress = null
 
 	const openFullscreen = (dom) => {
 		if (dom.requestFullscreen) {
@@ -26,16 +27,22 @@
 		} else if (dom.msRequestFullscreen) { /* IE/Edge */
 			dom.msRequestFullscreen();
 		}
+		isFullscreen = true
 	}
 
-	let videoTimer = function() {
+	let videoTimer = function(timeIndicator, progress) {
 		let timer;
-		function launchTimer() { currentVidTiming += 1 }
+		function launchTimer() { 
+			currentVidTiming += 1
+			progress.value = currentVidTiming
+		}
 		return {
 			start() {
+				progress = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] progress`)
 				timer = window.setInterval(launchTimer, 1000)
 			},
 			stop() {
+				progress.value = 0
 				clearInterval(timer)
 			}
 		}
@@ -58,13 +65,14 @@
 		currentVidWrapper.classList.add('fullscreen')
 		currentVid.play()
 		isPlaying = true
-		videoTimerClosure.start()
 		currentVid.onloadedmetadata = function() {
+			videoTimerClosure.start()
 			currentVidDuration = Math.round(currentVid.duration)
 		};
 	}
 
 	const navigationKey = (key) => {
+		if (!isFullscreen) { openFullscreen(body) }
 		switch (key) {
 			// if 'up' is pressed
 			case 38 :
@@ -100,7 +108,6 @@
 	}
 
 	const handleKeydown = (e) => {
-		openFullscreen(body)
 		let keyCode = e.keyCode
 		if (isPlaying) {
 			// if 'p' is pressed

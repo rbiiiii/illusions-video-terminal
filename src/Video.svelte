@@ -5,13 +5,10 @@
     export let currentVidDuration
     export let closeVideo
 
-    function formatTime(time) {   
-        // Hours, minutes and seconds
+    function formatTime(time) { 
         var hrs = ~~(time / 3600);
         var mins = ~~((time % 3600) / 60);
         var secs = ~~time % 60;
-
-        // Output like "1:01" or "4:03:59" or "123:03:59"
         var ret = "";
         if (hrs > 0) {
             ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
@@ -31,26 +28,64 @@
         preload="none">
         <source src="./videos/{source}.mp4" type="video/mp4">
     </video>
-    <p>
-        <span class="current-time">{videoTiming}</span>
-        <span class="separator">/</span>
-        <span class="current-duration">{videoDuration}</span>
-    </p>
+    <div class="timer">
+        <div class="timer-text">
+            <span>{videoTiming}</span>
+            <span>/</span>
+            <span>{videoDuration}</span>
+        </div>
+        <progress max="100" value="0">Progress</progress>
+    </div>
 </div>
 
 <style>
-p {
+.timer {
     position: absolute;
-    bottom: 1em;
-    background: var(--dark-orange);
-    padding: 0.25em 0.5em;
-    min-width: 5.5em;
-    text-align: center;
+    bottom: 0;
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items:center;
+    width:100%;
+    height:22px;
+    text-align: center;
 }
-span {
-    margin:0 0.2em;
-    flex:0 0 auto;
+.timer-text {
+    position: absolute;
+    line-height: 1;
+    font-size: 14px;
+    color:black;
+    z-index:2;
+}
+progress {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:22px;
+    opacity:0.6;
+}
+/* Fallback stuff */
+progress[value] {
+  appearance: none;
+  border: none;
+  display: inline;
+}
+
+/* WebKit styles */
+progress[value]::-webkit-progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 0px;
+}
+
+progress[value]::-webkit-progress-value {
+  background-image:linear-gradient(to right, var(--light-orange), var(--light-orange));
+  border-radius: 0px;
+  transition: width 1s linear;
+}
+
+/* Firefox styles */
+progress[value]::-moz-progress-bar {
+  background-image:linear-gradient(to right, var(--light-orange), var(--light-orange));
+  border-radius: 0px;
+  transition: width 1s linear;
 }
 </style>

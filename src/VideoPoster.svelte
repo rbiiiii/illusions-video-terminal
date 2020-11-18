@@ -32,7 +32,7 @@
         box-shadow: 0px 0px 16px -4px rgba(0,0,0,0.5); 
     }
     article[data-selected="true"] .poster-wrapper::after {
-        content:'▶️';
+        content:'▶';
         position: absolute;
         top:0;
         right:0;
