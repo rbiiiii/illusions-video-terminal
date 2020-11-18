@@ -6,6 +6,7 @@
 
 	const maxVideosNumber = Object.keys(videosList).length - 1 
 	const numberOfColumns = 4
+	const body = document.body
 
 	let isPlaying = false
 	let currentVidID = 0
@@ -14,6 +15,18 @@
 	let currentVidTiming = 0
 	let currentVidDuration = 0
 	let interval = null
+
+	const openFullscreen = (dom) => {
+		if (dom.requestFullscreen) {
+			dom.requestFullscreen();
+		} else if (dom.mozRequestFullScreen) { /* Firefox */
+			dom.mozRequestFullScreen();
+		} else if (dom.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+			dom.webkitRequestFullscreen();
+		} else if (dom.msRequestFullscreen) { /* IE/Edge */
+			dom.msRequestFullscreen();
+		}
+	}
 
 	let videoTimer = function() {
 		let timer;
@@ -87,6 +100,7 @@
 	}
 
 	const handleKeydown = (e) => {
+		openFullscreen(body)
 		let keyCode = e.keyCode
 		if (isPlaying) {
 			// if 'p' is pressed
@@ -101,8 +115,6 @@
 </script>
 
 <svelte:window on:keydown={handleKeydown}/>
-
-{currentVidTiming}
 
 <main>
 	<VideosPosters 

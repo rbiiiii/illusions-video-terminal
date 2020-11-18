@@ -21,10 +21,10 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: var(--light-orange);
 }
 
 body {
-    background-color: var(--light-orange);
     background-image: url(../img/bg.svg);
     background-repeat: no-repeat;
     background-size: 120vmax;
