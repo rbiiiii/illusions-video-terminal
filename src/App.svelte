@@ -11,8 +11,8 @@
 	let isFullscreen = false
 	let isPlaying = false
 	let currentVidID = 0
-	let currentVidWrapper = document.querySelector(`.video-wrapper[data-id="${currentVidID}"]`)
-	let currentVid = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] video`)
+	let currentVidWrapper = null
+	let currentVid = null
 	let currentVidTiming = 0
 	let currentVidDuration = 0
 	let progress = null
@@ -61,7 +61,7 @@
 
 	const openVideo = () => {
 		currentVidWrapper = document.querySelector(`.video-wrapper[data-id="${currentVidID}"]`)
-		currentVid = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] video`)
+		currentVid = currentVidWrapper.querySelector('video')
 		currentVidWrapper.classList.add('fullscreen')
 		currentVid.play()
 		isPlaying = true
