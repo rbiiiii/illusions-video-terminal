@@ -7,21 +7,16 @@
     export let currentVidDuration
     export let closeVideo
 
-    function formatTime(time) { 
-        var hrs = ~~(time / 3600);
-        var mins = ~~((time % 3600) / 60);
-        var secs = ~~time % 60;
-        var ret = "";
-        if (hrs > 0) {
-            ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-        }
-        ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-        ret += "" + secs;
-        return ret;
-    }
-
     $: videoDuration = formatTime(currentVidDuration)
     $: videoTiming = formatTime(currentVidTiming)
+
+    function formatTime(time) { 
+        const mins = Math.floor((time % 3600) / 60)
+        const secs = Math.floor(time % 60)
+        let out = mins + ":" + (secs < 10 ? "0" : "")
+        out += secs
+        return out
+    }
 </script>
 
 <div class="video-wrapper" data-id="{id}">
@@ -31,7 +26,7 @@
         <source src="./videos/{source}.mp4" type="video/mp4">
     </video>
     <div class="timer" transition:fade>
-        <div class="timer-text">
+        <div class="timer-numbers">
             <span>{videoTiming}</span>
             <span>/</span>
             <span>{videoDuration}</span>
@@ -51,7 +46,7 @@
     height:22px;
     text-align: center;
 }
-.timer-text {
+.timer-numbers {
     position: absolute;
     line-height: 1;
     font-size: 14px;
