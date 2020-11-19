@@ -30,7 +30,7 @@
 		isFullscreen = true
 	}
 
-	let videoTimer = function(timeIndicator, progress) {
+	let videoTimer = function() {
 		let timer;
 		function launchTimer() { 
 			currentVidTiming += 1
