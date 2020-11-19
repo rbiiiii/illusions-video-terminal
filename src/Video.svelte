@@ -1,4 +1,6 @@
 <script>
+    import {fade} from "svelte/transition";
+
     export let source
     export let id
     export let currentVidTiming
@@ -28,7 +30,7 @@
         preload="none">
         <source src="./videos/{source}.mp4" type="video/mp4">
     </video>
-    <div class="timer">
+    <div class="timer" transition:fade>
         <div class="timer-text">
             <span>{videoTiming}</span>
             <span>/</span>

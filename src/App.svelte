@@ -65,8 +65,8 @@
 		currentVidWrapper.classList.add('fullscreen')
 		currentVid.play()
 		isPlaying = true
+		videoTimerClosure.start()
 		currentVid.onloadedmetadata = function() {
-			videoTimerClosure.start()
 			currentVidDuration = Math.round(currentVid.duration)
 		};
 	}
