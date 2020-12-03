@@ -14,10 +14,11 @@
 
 <style>
 	article {
+        position:relative;
         display: block;
         width: 100%;
         line-height: 1;
-        transition:all 150ms ease-out;
+        transition:transform 150ms ease;
         transform-origin: center;
         text-decoration: none;
     }
@@ -28,8 +29,19 @@
     .poster-wrapper {
         position: relative;
     }
-    article[data-selected="true"] .poster-wrapper {
+    .poster-wrapper::before {
+        content:'';
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
         box-shadow: 0px 0px 16px -4px rgba(0,0,0,0.5); 
+        opacity:0;
+        transition:opacity 150ms ease;
+    }
+    article[data-selected="true"] .poster-wrapper {
+        opacity:1;
     }
     article[data-selected="true"] .poster-wrapper::after {
         content:'▶';
