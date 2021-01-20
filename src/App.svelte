@@ -40,6 +40,10 @@
 			start() {
 				progress = document.querySelector(`.video-wrapper[data-id="${currentVidID}"] progress`)
 				timer = window.setInterval(launchTimer, 1000)
+				currentVid.onloadedmetadata = function() {
+					currentVidDuration = Math.round(currentVid.duration)
+					progress.max = currentVidDuration
+				};
 			},
 			stop() {
 				progress.value = 0
@@ -66,9 +70,6 @@
 		currentVid.play()
 		isPlaying = true
 		videoTimerClosure.start()
-		currentVid.onloadedmetadata = function() {
-			currentVidDuration = Math.round(currentVid.duration)
-		};
 	}
 
 	const navigationKey = (key) => {
