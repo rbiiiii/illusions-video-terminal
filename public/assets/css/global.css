@@ -1,5 +1,5 @@
 :root {
-    --su: 40px;
+    --su: 80px;
     --light-orange: #ff7522;
     --light-orange-rgb: 255, 117, 34;
     --dark-orange: #ea5b0c;
@@ -25,6 +25,8 @@ body {
 }
 
 body {
+    display:flex;
+    align-items: center;
     background-image: url(../img/bg.svg);
     background-repeat: no-repeat;
     background-size: 120vmax;
