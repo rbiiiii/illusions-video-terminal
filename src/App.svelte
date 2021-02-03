@@ -6,7 +6,8 @@
 
 	const body = document.body
 	const maxVideosNumber = Object.keys(videosList).length - 1 
-	const numberOfColumns = 4
+	const numberOfColumns = 3
+	document.documentElement.style.setProperty('--numberOfColumns', numberOfColumns);
 
 	let isFullscreen = false
 	let isPlaying = false

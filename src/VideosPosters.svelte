@@ -19,7 +19,7 @@
 <style>
 	section {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(var(--numberOfColumns), 1fr);
 		grid-auto-rows: min-content;
 		grid-gap: var(--su);
 		align-items: center;
