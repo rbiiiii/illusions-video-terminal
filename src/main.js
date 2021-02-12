@@ -4,28 +4,28 @@ const app = new App({
     target: document.body,
     props: {
         videosList: [{
-                source: 'illusions - 01 - Modern Art Illusion by Christof Lauer',
-                title: "Titre Video"
+                source: 'Auditive_AccelerandoRisset_fr',
+                title: "FR"
             },
             {
-                source: 'illusions - 02 - Indonesia Yusuf Tirta performs Modern Art Illusion',
-                title: "Titre Video"
+                source: 'Auditive_Doppler_fr',
+                title: "FR"
             },
             {
-                source: 'illusions - 03 - Karen Schwarz es cortada en dos en vivo',
-                title: "Titre Video"
+                source: 'Auditive_EffetMcGurk_fr',
+                title: "FR"
             },
             {
-                source: 'illusions - 04 - Modern Art Illusion',
-                title: "Titre Video"
+                source: 'Auditive_Sheppard_fr',
+                title: "FR"
             },
             {
-                source: 'illusions - 05 - มายากลตัดตัวขาด Modern Art illusion',
-                title: "Titre Video"
+                source: 'Auditive_sons3d_fr',
+                title: "FR"
             },
             {
-                source: 'illusions - 06 - Sabat Czarownic 5 (próba) - składanie Barbary',
-                title: "Titre Video"
+                source: 'Auditives_hallucinationsauditives_fr',
+                title: "FR"
             }
         ]
     }
