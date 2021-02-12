@@ -9,7 +9,7 @@
     <div class="poster-wrapper">
         <img src="./videos/{source}.png" alt="">
     </div>
-    <h2>{title} - {id}</h2>
+    <h2>{title}</h2>
 </article>
 
 <style>
