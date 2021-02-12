@@ -7,7 +7,7 @@
 
 <article data-id="{id}" data-selected={id === currentVidID ? 'true' : 'false'}>
     <div class="poster-wrapper">
-        <img src="./videos/{source}.jpg" alt="">
+        <img src="./videos/{source}.png" alt="">
     </div>
     <h2>{title} - {id}</h2>
 </article>
