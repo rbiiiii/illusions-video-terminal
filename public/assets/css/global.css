@@ -4,6 +4,7 @@
     --light-orange-rgb: 255, 117, 34;
     --dark-orange: #ea5b0c;
     --dark-orange-rgb: 234, 91, 12;
+    --green: #00aa9d;
 }
 
 @font-face {
@@ -21,17 +22,12 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: var(--light-orange);
+    background-color: var(--green);
 }
 
 body {
     display:flex;
     align-items: center;
-    background-image: url(../img/bg.svg);
-    background-repeat: no-repeat;
-    background-size: 120vmax;
-    background-attachment: fixed;
-    background-position: 50%;
     color: white;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
