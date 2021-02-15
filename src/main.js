@@ -4,27 +4,27 @@ const app = new App({
     target: document.body,
     props: {
         videosList: [{
-                source: 'Cognitive_Flashs_fr',
+                source: 'Visuelle_DoubleAxis_fr',
                 title: "FR"
             },
             {
-                source: 'Cognitive_gorille_fr',
+                source: 'Visuelles_Couleursseparees_fr',
                 title: "FR"
             },
             {
-                source: 'Cognitive_Koulechov_fr',
+                source: 'Visuelles_Hallucinationsvisuelles_fr',
                 title: "FR"
             },
             {
-                source: 'Cognitive_Train_fr',
+                source: 'Visuelles_Imposssible typography_fr',
                 title: "FR"
             },
             {
-                source: 'Cognitives_Ballerine_fr',
+                source: 'Visuelles_Masquespleins_fr',
                 title: "FR"
             },
             {
-                source: 'Cognitives_Pointscouleur_fr',
+                source: 'Visuelles_noirblanccouleurs_fr',
                 title: "FR"
             }
         ]
