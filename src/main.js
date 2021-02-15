@@ -4,27 +4,27 @@ const app = new App({
     target: document.body,
     props: {
         videosList: [{
-                source: 'Auditive_AccelerandoRisset_fr',
+                source: 'Cognitive_Flashs_fr',
                 title: "FR"
             },
             {
-                source: 'Auditive_Doppler_fr',
+                source: 'Cognitive_gorille_fr',
                 title: "FR"
             },
             {
-                source: 'Auditive_EffetMcGurk_fr',
+                source: 'Cognitive_Koulechov_fr',
                 title: "FR"
             },
             {
-                source: 'Auditive_Sheppard_fr',
+                source: 'Cognitive_Train_fr',
                 title: "FR"
             },
             {
-                source: 'Auditive_sons3d_fr',
+                source: 'Cognitives_Ballerine_fr',
                 title: "FR"
             },
             {
-                source: 'Auditives_hallucinationsauditives_fr',
+                source: 'Cognitives_Pointscouleur_fr',
                 title: "FR"
             }
         ]
