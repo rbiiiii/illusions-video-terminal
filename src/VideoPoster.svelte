@@ -5,7 +5,7 @@
     export let currentVidID
 </script>
 
-<article data-id="{id}" data-selected={id === currentVidID ? 'true' : 'false'}>
+<article data-id="{id}" data-selected={id === currentVidID ? 'true' : 'false'} tabindex="0">
     <div class="poster-wrapper">
         <img src="./videos/{source}.png" alt="">
     </div>
@@ -15,7 +15,9 @@
 <style>
 	article {
         position:relative;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         line-height: 1;
         transition:transform 150ms ease;
@@ -69,6 +71,12 @@
         height:auto;
     }
     h2 {
+        display: inline-block;
+        padding: 0.5em;
+        border: 2px solid;
+        border-radius: 50%;
+        line-height: 0.8;
+        letter-spacing: 1px;
         font-family:rift;
         text-align: center;
         font-weight: normal;
