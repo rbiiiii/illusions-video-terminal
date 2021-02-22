@@ -26,7 +26,7 @@ body {
 }
 
 body {
-    overflow: auto;
+    overflow: hidden;
     color: white;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -59,10 +59,19 @@ main {
     height: 100%;
 }
 
+.video-wrapper .timer {
+    opacity:0;
+}
+
 .video-wrapper.fullscreen {
     display: flex;
     z-index: 10;
     animation: showFullscreen forwards 250ms ease-in-out;
+}
+
+.video-wrapper.fullscreen .timer {
+    animation: showTimer forwards 250ms ease-in-out;
+    animation-delay: 200ms;
 }
 
 @keyframes showFullscreen {
@@ -74,5 +83,14 @@ main {
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes showTimer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
