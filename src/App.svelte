@@ -6,7 +6,7 @@
 
 	const body = document.body
 	const maxVideosNumber = Object.keys(videosList).length - 1 
-	const numberOfColumns = 3
+	const numberOfColumns = 4
 	document.documentElement.style.setProperty('--numberOfColumns', numberOfColumns);
 
 	let isFullscreen = false
@@ -76,8 +76,8 @@
 	const navigationKey = (key) => {
 		if (!isFullscreen) { openFullscreen(body) }
 		switch (key) {
-			// if 'up' is pressed
-			case 38 :
+			// if 'B' is pressed
+			case 66 :
 				if (currentVidID >= numberOfColumns) {
 					currentVidID -= numberOfColumns
 				}
@@ -107,6 +107,8 @@
 			default :
 				return
 		}
+		let currentPoster = document.querySelector(`article[data-id="${currentVidID}"]`)
+		currentPoster.scrollIntoView({behavior:'smooth', block: "center", inline: "center"})
 	}
 
 	const handleKeydown = (e) => {
