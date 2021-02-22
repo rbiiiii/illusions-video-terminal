@@ -76,8 +76,8 @@
 	const navigationKey = (key) => {
 		if (!isFullscreen) { openFullscreen(body) }
 		switch (key) {
-			// if 'up' is pressed
-			case 38 :
+			// if 'B' is pressed
+			case 66 :
 				if (currentVidID >= numberOfColumns) {
 					currentVidID -= numberOfColumns
 				}
