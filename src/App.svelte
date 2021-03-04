@@ -4,12 +4,10 @@
 
 	export let videosList
 
-	const body = document.body
 	const maxVideosNumber = Object.keys(videosList).length - 1 
 	const numberOfColumns = 4
 	document.documentElement.style.setProperty('--numberOfColumns', numberOfColumns);
 
-	let isFullscreen = false
 	let isPlaying = false
 	let currentVidID = 0
 	let currentVidWrapper = null
@@ -17,19 +15,6 @@
 	let currentVidTiming = 0
 	let currentVidDuration = 0
 	let progress = null
-
-	const openFullscreen = (dom) => {
-		if (dom.requestFullscreen) {
-			dom.requestFullscreen();
-		} else if (dom.mozRequestFullScreen) { /* Firefox */
-			dom.mozRequestFullScreen();
-		} else if (dom.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-			dom.webkitRequestFullscreen();
-		} else if (dom.msRequestFullscreen) { /* IE/Edge */
-			dom.msRequestFullscreen();
-		}
-		isFullscreen = true
-	}
 
 	let videoTimer = function() {
 		let timer;
@@ -74,10 +59,9 @@
 	}
 
 	const navigationKey = (key) => {
-		if (!isFullscreen) { openFullscreen(body) }
 		switch (key) {
-			// if 'up' is pressed
-			case 38 :
+			// if 'B' is pressed
+			case 66 :
 				if (currentVidID >= numberOfColumns) {
 					currentVidID -= numberOfColumns
 				}
